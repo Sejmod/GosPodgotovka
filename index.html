@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ИС Aitest - Система тестирования</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="header">
+        <div class="logo">ИС Aitest</div>
+        <div class="header-controls">
+            <span id="timerDisplay" class="hidden">00:00</span>
+            <button id="themeToggle" class="theme-btn">🌙</button>
+        </div>
+    </header>
+
+    <main class="main-container">
+        
+        <section id="startScreen" class="screen active">
+            <h2>Добро пожаловать</h2>
+            <p>Тест состоит из 60 вопросов (по 20 из 3 категорий: Кыргызский язык, География КР, История КР).</p>
+            <div class="start-actions">
+                <button id="startBtn" class="btn primary-btn">Начать новый тест</button>
+                <button id="resumeBtn" class="btn secondary-btn hidden">Продолжить тест</button>
+            </div>
+        </section>
+
+        <section id="quizScreen" class="screen">
+            <div class="progress-container">
+                <div class="progress-text">Вопрос <span id="currentQNum">1</span> из <span id="totalQNum">60</span></div>
+                <div class="progress-bar-bg">
+                    <div id="progressBar" class="progress-bar-fill"></div>
+                </div>
+            </div>
+
+            <div class="question-container">
+                <h3 id="questionText">Текст вопроса...</h3>
+                <div id="optionsContainer" class="options-list">
+                    </div>
+            </div>
+
+            <div class="navigation-buttons">
+                <button id="prevBtn" class="btn nav-btn">Предыдущий вопрос</button>
+                <button id="nextBtn" class="btn nav-btn">Следующий вопрос</button>
+            </div>
+            <button id="finishBtn" class="btn danger-btn mt-10">Закончить тест</button>
+        </section>
+
+        <section id="resultScreen" class="screen">
+            <h2>Результаты теста</h2>
+            <div class="result-stats">
+                <p>Правильных ответов: <span id="resCorrect" class="text-green">0</span></p>
+                <p>Неправильных ответов: <span id="resWrong" class="text-red">0</span></p>
+                <p>Процент: <span id="resPercent">0</span>%</p>
+                <p>Оценка: <strong id="resGrade">0</strong></p>
+            </div>
+            <button id="restartBtn" class="btn primary-btn">На главную</button>
+            
+            <h3 class="mt-20">Ошибки:</h3>
+            <div id="mistakesList" class="mistakes-container">
+                </div>
+        </section>
+
+    </main>
+
+    <nav class="bottom-nav">
+        <div class="nav-item active">
+            <span class="icon">📋</span>
+            <span>Назначенные тесты</span>
+        </div>
+        <div class="nav-item">
+            <span class="icon">📚</span>
+            <span>Результаты</span>
+        </div>
+        <div class="nav-item">
+            <span class="icon">≡</span>
+            <span>Меню</span>
+        </div>
+    </nav>
+
+    <script src="questions.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
